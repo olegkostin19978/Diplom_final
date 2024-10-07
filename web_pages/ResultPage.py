@@ -83,8 +83,10 @@ class ResultPage:
         """
         book_element = WebDriverWait(self._driver, 10).until(
             EC.visibility_of_element_located(
-                (By.XPATH,
-                 '//*[@id="__layout"]/div/div[3]/div[1]/div/div/div[1]/section/section/div/article[1]/div[2]/a/div/div[1]')
+                (
+                    By.XPATH,
+                    '//*[@id="__layout"]/div/div[3]/div[1]/div/div/div[1]/section/section/div/article[1]/div[2]/a/div/div[1]',
+                )
             )
         )
         return book_element.text

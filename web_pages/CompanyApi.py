@@ -12,8 +12,8 @@ class CompanyApi:
         """
         self.url = url
         self.headers = {
-            'Authorization': f'Bearer {token}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
         }
 
     def add_product_to_cart(self, product_data: dict) -> Response:
@@ -23,7 +23,9 @@ class CompanyApi:
         :param product_data: Данные о продукте, которые нужно добавить в корзину.
         :return: Объект Response от API с результатом операции.
         """
-        resp = requests.post(self.url + '/cart/product', json=product_data, headers=self.headers)
+        resp = requests.post(
+            self.url + "/cart/product", json=product_data, headers=self.headers
+        )
         return resp
 
     def get_cart_contents(self) -> Response:
@@ -32,7 +34,7 @@ class CompanyApi:
 
         :return: Объект Response от API с содержимым корзины.
         """
-        resp = requests.get(self.url + '/cart', headers=self.headers)
+        resp = requests.get(self.url + "/cart", headers=self.headers)
         return resp  # Возвращаем объект Response
 
     def clear_cart(self) -> Response:
@@ -41,7 +43,7 @@ class CompanyApi:
 
         :return: Объект Response от API с результатом операции.
         """
-        resp = requests.delete(self.url + '/cart', headers=self.headers)
+        resp = requests.delete(self.url + "/cart", headers=self.headers)
         return resp  # Возвращаем объект Response
 
     def get_shops(self, params: dict = None) -> Response:
@@ -51,7 +53,9 @@ class CompanyApi:
         :param params: (опционально) Параметры запроса.
         :return: Объект Response от API с результатом запроса.
         """
-        resp = requests.get(self.url + '/shops-cities', params=params, headers=self.headers)
+        resp = requests.get(
+            self.url + "/shops-cities", params=params, headers=self.headers
+        )
         return resp  # Возвращаем объект Response
 
     def get_countries(self) -> Response:
@@ -60,5 +64,5 @@ class CompanyApi:
 
         :return: Объект Response от API с результатом запроса.
         """
-        resp = requests.get(self.url + '/countries', headers=self.headers)
+        resp = requests.get(self.url + "/countries", headers=self.headers)
         return resp  # Возвращаем объект Response

@@ -39,7 +39,9 @@ class MainPage:
         :return: None
         """
         promotions_button = WebDriverWait(self._driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, 'a[href="/promotions"]'))
+            EC.element_to_be_clickable(
+                (By.CSS_SELECTOR, 'a[href="/promotions"]')
+            )
         )
         promotions_button.click()
 
@@ -81,4 +83,6 @@ class MainPage:
 
     @allure.step("Найти книгу")
     def find_books(self, value: str):
-        self._driver.find_element(By.CSS_SELECTOR, "input.header-search__input").send_keys(value + Keys.RETURN)
+        self._driver.find_element(
+            By.CSS_SELECTOR, "input.header-search__input"
+        ).send_keys(value + Keys.RETURN)
